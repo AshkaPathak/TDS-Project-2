@@ -10,11 +10,11 @@ Final submission payload:
   "task4": "1003540",
   "task5": "2",
   "task6": "25732",
-  "task7": "3772366",
+  "task7": "3790373",
   "task8": "45102",
   "task9": "1",
   "task10": "3623",
-  "task11": "2487",
+  "task11": "2484",
   "task12": "0"
 }
 ```
