@@ -6,7 +6,7 @@ Final submission payload:
 {
   "task1": "SM-HOM-0074",
   "task2": "41",
-  "task3": "3.92",
+  "task3": "3.71",
   "task4": "1003540",
   "task5": "2",
   "task6": "25732",
