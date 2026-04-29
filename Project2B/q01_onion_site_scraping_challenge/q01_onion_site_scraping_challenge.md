@@ -4,7 +4,7 @@ Final submission payload:
 
 ```json
 {
-  "task1": "SM-HOM-0074",
+  "task1": "SM-HOM-0232",
   "task2": "41",
   "task3": "3.67",
   "task4": "1003540",
