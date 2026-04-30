@@ -1,5 +1,11 @@
 # Blockchains in Practice: The Precision Transfer
 
+## Method
+
+I funded a Solana Devnet fee payer from the official faucet, then used `@solana/web3.js` to build a two-instruction transaction: a System Program transfer for exactly `19679000` lamports and a Solana Memo Program v2 instruction containing `006A-994A`. After confirmation, I queried the transaction with `getParsedTransaction` to verify the destination, amount, memo, and successful status.
+
+## Answer
+
 Transaction signature (Solana Devnet):
 
 ```text

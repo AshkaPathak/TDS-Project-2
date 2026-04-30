@@ -1,5 +1,11 @@
 # Damaged QR Forensics: Solana Devnet Trace
 
+## Method
+
+I cropped and thresholded the damaged QR image, reconstructed it as a Version 1 QR grid, decoded the visible byte-mode payload, and inserted the recovered 7-character fragment into the masked Solana signature. The first completed signature exposed one screenshot transcription issue (`X` vs `x`), so I checked base58 one-character variants against Devnet until the valid finalized transaction was found. I then queried the parsed transaction and extracted the System Program transfer fields.
+
+## Answer
+
 Recovered QR fragment:
 
 ```text
