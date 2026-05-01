@@ -2,13 +2,16 @@
 
 ## Method
 
-I used the IITM Discourse JSON API through an authenticated browser session, because the course categories are login-restricted. The workflow was:
+I used the IITM Discourse JSON data dump shared for Project 2B Q4, plus the authenticated IITM Discourse JSON API for the earlier exact-topic checks. The final correction pass used the Drive JSON files because they include course categories that my account could not directly access, especially Modern Application Development II.
 
-1. Read category metadata from `/site.json` to map category names to slugs and IDs.
-2. Search solved topics with `/search.json?q=category:<slug> status:solved ...` and paginate until no more results.
-3. Fetch each topic with `/t/<topic_id>.json`; for long topics, fetch missing post IDs through `/t/<topic_id>/posts.json?post_ids[]=...`.
-4. Compute reusable per-topic fields: original poster, topic creation date, tags, accepted answer post ID, reply count, latest reply post ID, post authors, and like counts.
-5. Filter exactly by the prompt's category, title, author, date range, and cutoff timestamp.
+The workflow was:
+
+1. Download the public Drive folder JSON files for all 14 Discourse categories.
+2. Load each subject JSON as a list of full topic objects.
+3. For exact-topic tasks, match on category, normalized title, original poster, and topic creation date.
+4. For accepted-answer tasks, map `accepted_answer.post_number` back to the corresponding post ID.
+5. For reply-count compound tasks, count non-original posts and select the latest reply post ID before `2026-12-31T23:59:59Z`.
+6. For aggregate tasks, filter solved topics by topic creation date and tags, or count posts/replies/likes by post creation date as required.
 
 Important correction from the first failed submission: the portal requires keys named `task1` through `task50`. Numeric keys like `"9"` are not accepted and cause a 0/50 validation result.
 
@@ -45,30 +48,37 @@ Important correction from the first failed submission: the portal requires keys 
   "task27": "4-659810",
   "task28": "23f1001171",
   "task29": "629844",
-  "task30": "835",
+  "task30": "849",
   "task31": "9-617918",
   "task32": "24-702516",
   "task33": "5-628852",
-  "task34": "112",
+  "task34": "113",
   "task35": "592990",
   "task36": "729566",
   "task37": "3-587148",
   "task38": "5-677017",
   "task39": "600820",
-  "task40": "33",
+  "task40": "35",
   "task41": "Gurkirat",
-  "task42": "24F2001956",
+  "task42": "Preethy",
   "task43": "8-614488",
   "task44": "749847",
   "task45": "615398",
   "task46": "584354",
   "task47": "16-613676",
   "task48": "663262",
-  "task49": "UNRESOLVED_MAD2_ACCESS_REQUIRED",
-  "task50": "21"
+  "task49": "701557",
+  "task50": "22"
 }
 ```
 
-## Access Note
+## Correction Note
 
-Task 49 asks for a Modern Application Development II topic. The authenticated Discourse session used here does not expose a Modern Application Development II category in `/site.json`, searches for the exact title/author/date returned no topic, and a direct scan of nearby topic IDs from 2025-11-21 did not expose the matching topic. This one needs data from a peer account that has MAD2 access.
+The earlier 42/50 submission still depended on API search pagination and did not have Modern Application Development II access. Recomputing from the Drive JSON dump changed six answers:
+
+- `task30`: `835` -> `849`
+- `task34`: `112` -> `113`
+- `task40`: `33` -> `35`
+- `task42`: `24F2001956` -> `Preethy`
+- `task49`: `UNRESOLVED_MAD2_ACCESS_REQUIRED` -> `701557`
+- `task50`: `21` -> `22`
