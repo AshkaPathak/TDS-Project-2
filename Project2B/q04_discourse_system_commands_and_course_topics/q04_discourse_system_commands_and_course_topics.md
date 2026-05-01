@@ -52,7 +52,7 @@ Important correction from the first failed submission: the portal requires keys 
   "task31": "9-617918",
   "task32": "24-702516",
   "task33": "5-628852",
-  "task34": "111",
+  "task34": "113",
   "task35": "592990",
   "task36": "729566",
   "task37": "3-587148",
@@ -77,7 +77,7 @@ Important correction from the first failed submission: the portal requires keys 
 The earlier 42/50 submission still depended on API search pagination and did not have Modern Application Development II access. Recomputing from the Drive JSON dump changed six answers:
 
 - `task30`: `835` -> `849`
-- `task34`: `112` -> `111`
+- `task34`: `112` -> `113`
 - `task40`: `33` -> `35`
 - `task42`: kept as `24F2001956` after checking that the Drive Math JSON has zeroed `like_count` values
 - `task49`: `UNRESOLVED_MAD2_ACCESS_REQUIRED` -> `701557`
