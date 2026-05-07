@@ -1,3 +1,17 @@
+# OS and editor files
 .DS_Store
+Thumbs.db
+
+# Python local state
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Analysis caches and bulky regenerated scratch artifacts
 *.pcap
-*.py
+models/
+.cache/
